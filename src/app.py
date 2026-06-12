@@ -99,6 +99,11 @@ def signup_for_activity(activity_name: str, email: str):
     activity = activities[activity_name]
 
     # Add student
+    activity["participants"].append(email)
+    return {"message": f"Signed up {email} for {activity_name}"}  
+
+
+    #Validate if student is already signed up
     if email not in activity["participants"]:
         activity["participants"].append(email)
     else:
